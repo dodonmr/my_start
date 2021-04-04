@@ -1,4 +1,4 @@
-# Book Kids Store Project
+# Kids BookStore Project
 
 * Favorite Books (from existing books)
 
