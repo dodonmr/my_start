@@ -25,7 +25,7 @@ pipeline {
           """
           sh """#!/bin/bash -e
             # Wait for chromemode to be up and execute selenium tests in robottests container
-            docker-compose run robottests -t 15 chromenode:9001 -- robot -d reports -x xunit --variablefile variables/config.py --variable BROWSER:chrome tests/
+            docker-compose run robottests -t 15 -- robot -d reports -x xunit --variablefile variables/config.py --variable BROWSER:chrome tests/
           """
           sh """#!/bin/bash
                           # Stop and remove the containers
