@@ -5,12 +5,12 @@ pipeline {
     TAG = "demo_robot"
   }
 
-  stages {
-    stage("Checkout") {
-      steps {
-        checkout scm
-      }
-    }
+//   stages {
+//     stage("Checkout") {
+//       steps {
+//         checkout scm
+//       }
+//     }
 
     stage("Cleaning and preparing") {
       steps {
