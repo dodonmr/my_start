@@ -1,0 +1,15 @@
+Pillow==8.0.1
+Flask==1.1.2
+image==1.5.33
+netmiko==3.3.2
+paramiko==2.7.2
+pexpect==4.8.0
+robotframework==3.2.2
+sauceclient==1.0.0
+selenium==3.141.0
+opencv-python== 4.4.0.46
+robotremoteserver ==1.1
+pycurl==7.43.0.6
+robotframework-seleniumlibrary== 3.3.1
+robotframework-hub==1.0.1
+
