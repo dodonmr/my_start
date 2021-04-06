@@ -41,5 +41,5 @@ RUN pip install -r requirements.txt
 RUN chmod +x wait-for-it.sh
 
 
-ENTRYPOINT [ "robot", "-v TEST_URL:https://10.51.3.177 -v TENANT_USERNAME:admin@cust001.com -v TENANT_PASSWORD:aerohive -v BROWSER:firefox" ]
+#ENTRYPOINT [ "robot", "-v TEST_URL:https://10.51.3.177 -v TENANT_USERNAME:admin@cust001.com -v TENANT_PASSWORD:aerohive -v BROWSER:firefox" ]
 

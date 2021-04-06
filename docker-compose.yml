@@ -1,7 +1,8 @@
-version: "3"
+version: "3.8"
 services:
 
   hub:
+    container_name: hub
     image: selenium/hub
     networks:
       robottestsnw: { }
@@ -26,7 +27,7 @@ services:
       NODE_MAX_SESSION: 4
       NODE_MAX_INSTANCES: 4
     volumes:
-      - ~/work/mrdodon:/dev/shm
+      - /dev/shm:/dev/shm
     ports:
       - "9001:5900"
     links:
@@ -60,7 +61,7 @@ services:
       - hub
     build: tests_robotframework/.
     volumes:
-    - ./reports:/frontend-integration-tests/reports
+    - ./reports:/robotframework-tests/reports
 
 networks:
   robottestsnw:
