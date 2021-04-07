@@ -19,7 +19,6 @@ pipeline {
 
     stage('Run Selenium Tests') {
         steps{
-          step(
               sh """#!/bin/bash -e
             # Build, create and start containers in a background
             docker-compose up -d --build
@@ -41,8 +40,6 @@ pipeline {
                           # Stop and remove the containers
                           docker-compose down
                       """
-             
-          )
         }
     }
 
