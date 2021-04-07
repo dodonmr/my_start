@@ -19,7 +19,7 @@ pipeline {
     }
 
     stage('Run Selenium Tests') {
-      steps {
+      
         try{
           sh """#!/bin/bash -e
             # Build, create and start containers in a background
@@ -44,7 +44,7 @@ pipeline {
                           docker-compose down
                       """
         }
-      }
+
     }
   }
 }
