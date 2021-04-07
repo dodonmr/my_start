@@ -23,7 +23,7 @@ SELENIUM_HUB = 'http://hub:4444/wd/hub'
 
 
 # Asset Services
-APP_URL = 'https://10.51.3.177'
+APP_URL = 'http://google.com'
 
 # Browser
 BROWSER = 'Chrome'
