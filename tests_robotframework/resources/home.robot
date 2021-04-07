@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    A file with reusable keywords and variables for the Home page.
 Library          SeleniumLibrary
+Library          Collections
 
 *** Variables ***
 ${TIMEOUT}    2
@@ -11,6 +12,5 @@ Open Browser To Home Page
 
 
 A Home Page Is Open
-    Wait Until Page Contains    Time now is
-    ...                         ${TIMEOUT}
-    ...                         The Home Page didn't load within ${TIMEOUT} snds.
+    ${Title}=    Get Title
+    Should Be Equal As Strings   ${Title}  ExtremeCloud IQ
