@@ -26,5 +26,5 @@ SELENIUM_HUB = 'http://hub:4444/wd/hub'
 APP_URL = 'https://10.51.3.177'
 
 # Browser
-BROWSER = 'Firefox'
+BROWSER = 'Chrome'
 
