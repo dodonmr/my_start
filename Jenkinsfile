@@ -1,4 +1,3 @@
-#!/usr/bin/env groovy
 pipeline {
   agent any
 
@@ -19,18 +18,19 @@ pipeline {
     }
 
     stage('Run Selenium Tests') {
-      
-        try{
-          sh """#!/bin/bash -e
+        steps{
+          step(
+            try{
+              sh """#!/bin/bash -e
             # Build, create and start containers in a background
             docker-compose up -d --build
           """
-          sh """#!/bin/bash -e
+              sh """#!/bin/bash -e
             # Wait for chromemode to be up and execute selenium tests in robottests container
             docker-compose run robottests robot -d reports -x xunit --variablefile variables/config.py --variable BROWSER:chrome tests/
           """
-        }finally{
-          publishHTML target: [
+            }finally{
+             publishHTML target: [
                     allowMissing: false,
                     alwaysLinkToLastBuild: true,
                     keepAll: true,
@@ -39,12 +39,13 @@ pipeline {
                     reportName: 'Robot Framework Test Execution Report'
                     ]
                     junit 'reports/*.xml'
-          sh """#!/bin/bash
+                     sh """#!/bin/bash
                           # Stop and remove the containers
                           docker-compose down
                       """
+             }
+          )
         }
-
     }
-  }
+
 }
