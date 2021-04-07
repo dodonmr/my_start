@@ -4,7 +4,7 @@ Library          SeleniumLibrary
 Library          Collections
 
 *** Variables ***
-${TIMEOUT}    2
+#${TIMEOUT}    2
 
 *** Keywords ***
 Open Browser To Home Page
