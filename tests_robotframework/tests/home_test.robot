@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation     Test home page
-Resource          ../resources/home.robot
+Resource          resources/home.robot
 
 *** Test Cases ***
 Use Can Open A Home Page
