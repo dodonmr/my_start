@@ -42,6 +42,8 @@ RUN pip install --upgrade pip
 
 RUN pip install -r /tmp/requirements.txt
 
+COPY tests_robotframework/tests /tests
+
 #RUN chmod +x wait-for-it.sh
 
 
