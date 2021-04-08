@@ -32,13 +32,17 @@ FROM python:3.8.5
 #RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 #RUN python get-pip.py --force-reinstall
 
-ADD . /robotframework-tests
+#ADD . /robotframework-tests
+#
+#WORKDIR /robotframework-tests
 
-WORKDIR /robotframework-tests
+COPY requirements.txt /tmp/requirements.txt
+
+RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
-RUN chmod +x wait-for-it.sh
+#RUN chmod +x wait-for-it.sh
 
 
 #ENTRYPOINT [ "robot", "-v TEST_URL:https://10.51.3.177 -v TENANT_USERNAME:admin@cust001.com -v TENANT_PASSWORD:aerohive -v BROWSER:firefox" ]
