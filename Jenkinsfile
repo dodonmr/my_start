@@ -25,7 +25,7 @@ pipeline {
           """
               sh """#!/bin/bash -e
             # Wait for chromemode to be up and execute selenium tests in robottests container
-            docker-compose run robottests robot -d reports -x xunit --variablefile variables/config.py --variable BROWSER:chrome tests/
+            docker-compose run robottests robot -d reports -x xunit --variable BROWSER:chrome tests/
           """
 
                      sh """#!/bin/bash
