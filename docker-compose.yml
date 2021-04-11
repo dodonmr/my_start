@@ -35,6 +35,7 @@ services:
 
   firefox:
     image: selenium/node-firefox
+    shm_size: '1gb'
     container_name: web-automation_firefox
     networks:
       robottestsnw: { }
@@ -58,10 +59,11 @@ services:
     networks:
       robottestsnw: { }
     depends_on:
-      - hub
+      - chrome
+      - firefox
     build: tests_robotframework/.
     volumes:
-    - ./reports:/robotframework-tests/reports
+    - ./reports:/tests/*
 
 networks:
   robottestsnw:
