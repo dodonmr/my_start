@@ -39,10 +39,17 @@ pipeline {
         				sh "docker-compose up -d hub chrome firefox"
         			}
         		}
-        		stage("Run Test"){
-        			steps{
-        				sh "docker-compose up robottests"
+        stage("Run Test"){
+        		steps{
+        				sh "docker-compose run robottests"
         			}
+        }
+        post{
+        		always{
+        			archiveArtifacts artifacts: 'reports/**'
+        			sh "docker-compose down"
+        			sh "sudo rm -rf reports/"
         		}
+        	}
   }
 }
