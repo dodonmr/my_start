@@ -20,7 +20,7 @@ pipeline {
     stage('Run Selenium Tests') {
         steps{
         // Build, create and start containers in a background
-              sh "docker-compose up -d --build --no-colors"
+              sh "docker-compose up -d --build --no-color"
 
         // Check that Selenium Grid is up
               sh './tests_robotframework/healthcheck.sh'
