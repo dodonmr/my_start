@@ -21,12 +21,9 @@ pipeline {
         steps{
               sh """#!/bin/bash -e
             # Build, create and start containers in a background
-            docker-compose up -d --build
+            docker-compose up -d hub chrome firefox
           """
-              sh """#!/bin/bash -e
-                             # Check selenium grid is up
-                             sh healthcheck.sh
-                           """
+              sh "./tests-robotframework/healthcheck.sh"
 
               sh """#!/bin/bash -e
             # Wait for chromemode to be up and execute selenium tests in robottests container
