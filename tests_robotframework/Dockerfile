@@ -51,8 +51,8 @@ COPY requirements.txt .
 #RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
-RUN chmod +x healthcheck.sh
-RUN ./healthcheck.sh
+#RUN chmod +x healthcheck.sh
+#RUN ./healthcheck.sh
 COPY tests /tests
 
 #RUN chmod +x wait-for-it.sh
