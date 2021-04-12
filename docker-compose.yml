@@ -22,7 +22,7 @@ services:
     depends_on:
       - hub
     environment:
-      - HUB_HOST = hub
+      - HUB_HOST=hub
 #      HUB_PORT_4444_TCP_ADDR: hub
 #      HUB_PORT_4444_TCP_PORT: 4444
 #      NODE_MAX_SESSION: 4
@@ -43,7 +43,7 @@ services:
     depends_on:
       - hub
     environment:
-      - HUB_HOST = hub
+      - HUB_HOST=hub
 #      HUB_PORT_4444_TCP_ADDR: hub
 #      HUB_PORT_4444_TCP_PORT: 4444
 #      NODE_MAX_SESSION: 2
@@ -65,9 +65,9 @@ services:
       - firefox
     build: tests_robotframework/.
     environment:
-      - HUB_HOST = hub
-      - BROWSER = chrome
-      - MODULE = tests
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - MODULE=tests
 
     volumes:
     - ./reports:/tests/*
