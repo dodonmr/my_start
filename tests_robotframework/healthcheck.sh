@@ -16,3 +16,5 @@ done
 #    -DHUB_HOST=$HUB_HOST \
 #    -DBROWSER=$BROWSER \
 #    org.testng.TestNG $MODULE
+
+robot -v BROWSER:$BROWSER -v HUB_HOST=$HUB_HOST tests

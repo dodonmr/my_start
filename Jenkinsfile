@@ -17,22 +17,32 @@ pipeline {
       }
     }
 
-    stage('Run Selenium Tests') {
-        steps{
-              sh """#!/bin/bash -e
-            # Build, create and start containers in a background
-            docker-compose up -d --build
-          """
-              sh """#!/bin/bash -e
-            # Wait for chromemode to be up and execute selenium tests in robottests container
-            docker-compose run robottests robot -d tests -x xunit --variable BROWSER:chrome tests/
-          """
-
-              sh """#!/bin/bash
-                          # Stop and remove the containers
-                          docker-compose down
-                      """
-        }
-    }
+//     stage('Run Selenium Tests') {
+//         steps{
+//               sh """#!/bin/bash -e
+//             # Build, create and start containers in a background
+//             docker-compose up -d --build
+//           """
+//               sh """#!/bin/bash -e
+//             # Wait for chromemode to be up and execute selenium tests in robottests container
+//             docker-compose run robottests robot -d tests -x xunit --variable BROWSER:chrome tests/
+//           """
+//
+//               sh """#!/bin/bash
+//                           # Stop and remove the containers
+//                           docker-compose down
+//                       """
+//         }
+//     }
+        stage("Start Grid"){
+        			steps{
+        				sh "docker-compose up -d hub chrome firefox"
+        			}
+        		}
+        		stage("Run Test"){
+        			steps{
+        				sh "docker-compose up robottests"
+        			}
+        		}
   }
 }
