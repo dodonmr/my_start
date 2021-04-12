@@ -40,19 +40,24 @@ RUN apt-get update
 
 RUN apt -y install jq
 
-ADD healthcheck.sh  healthcheck.sh
+#RUN mkdir -p /scripts
 
-COPY requirements.txt /tmp/requirements.txt
+WORKDIR /scripts
+
+COPY healthcheck.sh  .
+
+COPY requirements.txt .
 
 #RUN pip install --upgrade pip
 
-RUN pip install -r /tmp/requirements.txt
-
+RUN pip install -r requirements.txt
+RUN chmod +x healthcheck.sh
+RUN ./healthcheck.sh
 COPY tests /tests
 
 #RUN chmod +x wait-for-it.sh
 
-ENTRYPOINT sh healthcheck.sh
+#ENTRYPOINT sh healthcheck.sh
 
 #ENTRYPOINT [ "robot", "-v TEST_URL:https://10.51.3.177 -v TENANT_USERNAME:admin@cust001.com -v TENANT_PASSWORD:aerohive -v BROWSER:firefox" ]
 
