@@ -53,7 +53,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 #RUN chmod +x healthcheck.sh
 #RUN ./healthcheck.sh
-COPY tests /tests
+COPY tests /scripts/tests
 
 #RUN chmod +x wait-for-it.sh
 
