@@ -19,35 +19,24 @@ pipeline {
 
     stage('Run Selenium Tests') {
         steps{
-              sh """#!/bin/bash -e
-            # Build, create and start containers in a background
-            docker-compose up -d --build
-          """
+        // Build, create and start containers in a background
+              sh "docker-compose up -d --build --no-colors"
+
+        // Check that Selenium Grid is up
               sh './tests_robotframework/healthcheck.sh'
 
-              sh """#!/bin/bash -e
-            # Wait for chromemode to be up and execute selenium tests in robottests container
-            docker-compose run robottests robot -d tests -x xunit --variable BROWSER:chrome /scripts/tests/
-          """
+        // Execute selenium tests in robottests container
 
-              sh """#!/bin/bash
-                          # Stop and remove the containers
-                          docker-compose down
-                      """
+              sh "docker-compose run robottests robot -d tests -x xunit --variable BROWSER:chrome /scripts/tests/"
+
+        // Stop and remove the containers
+              sh " docker-compose down"
+
+
         }
     }
    }
-//         stage("Start Grid"){
-//         			steps{
-//         				sh "docker-compose up -d hub chrome firefox"
-//         			}
-//         		}
-//         stage("Run Test"){
-//         		steps{
-//         				sh "docker-compose run robottests"
-//         			}
-//         }
-//       }
+
         post{
         		always{
         			archiveArtifacts artifacts: 'reports'
