@@ -44,6 +44,7 @@ pipeline {
         				sh "docker-compose run robottests"
         			}
         }
+      }
         post{
         		always{
         			archiveArtifacts artifacts: 'reports/**'
@@ -51,5 +52,5 @@ pipeline {
         			sh "sudo rm -rf reports/"
         		}
         	}
-  }
+
 }
