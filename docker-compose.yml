@@ -63,6 +63,7 @@ services:
     depends_on:
       - chrome
       - firefox
+      - hub
     build: tests_robotframework/.
     environment:
       - HUB_HOST=hub
