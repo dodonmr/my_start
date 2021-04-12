@@ -24,6 +24,11 @@ pipeline {
             docker-compose up -d --build
           """
               sh """#!/bin/bash -e
+                             # Check selenium grid is up
+                             sh healthcheck.sh
+                           """
+
+              sh """#!/bin/bash -e
             # Wait for chromemode to be up and execute selenium tests in robottests container
             docker-compose run robottests robot -d tests -x xunit --variable BROWSER:chrome /scripts/tests/
           """
@@ -48,9 +53,9 @@ pipeline {
 //       }
         post{
         		always{
-        			archiveArtifacts artifacts: 'reports/**'
+        			archiveArtifacts artifacts: 'reports'
         			sh "docker-compose down"
-        			sh "sudo rm -rf reports/"
+//         			sh "sudo rm -rf reports/"
         		}
         	}
 
