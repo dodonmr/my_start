@@ -36,6 +36,12 @@ FROM python:3.8.5
 #
 #WORKDIR /robotframework-tests
 
+RUN apt-get update
+
+RUN apt -y install jq
+
+ADD healthcheck.sh  healthcheck.sh
+
 COPY requirements.txt /tmp/requirements.txt
 
 #RUN pip install --upgrade pip
@@ -46,6 +52,7 @@ COPY tests /tests
 
 #RUN chmod +x wait-for-it.sh
 
+ENTRYPOINT sh healthcheck.sh
 
 #ENTRYPOINT [ "robot", "-v TEST_URL:https://10.51.3.177 -v TENANT_USERNAME:admin@cust001.com -v TENANT_PASSWORD:aerohive -v BROWSER:firefox" ]
 
