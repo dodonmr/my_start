@@ -69,7 +69,6 @@ services:
     - ./reports:/scripts/tests/*
 volumes:
   reports:
-    external: true
 
 networks:
   robottestsnw:
