@@ -38,14 +38,14 @@ FROM python:3.8.5
 
 WORKDIR /scripts
 
-COPY healthcheck.sh  .
+#COPY healthcheck.sh  .
 
 COPY requirements.txt .
 
 #RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
-RUN chmod a+x healthcheck.sh
+#RUN chmod a+x healthcheck.sh
 COPY tests /scripts/tests
 
 #RUN chmod +x wait-for-it.sh
