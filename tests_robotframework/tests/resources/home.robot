@@ -18,4 +18,4 @@ Open Browser To Home Page
 
 A Home Page Is Open
     ${Title}=    Get Title
-    Should Be Equal As Strings   ${Title}  ExtremeCloud IQ
+    Should Be Equal As Strings   ${Title}   ExtremeCloud IQ
