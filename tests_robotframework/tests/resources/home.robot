@@ -8,7 +8,7 @@ Library          Collections
 *** Variables ***
 #${TIMEOUT}    2
 ${SELENIUM_HUB}  http://hub:4444/wd/hub
-${APP_URL}  http://google.com
+${APP_URL}  https://a6.dev.xcloudiq.com/login
 ${BROWSER}  Chrome
 
 *** Keywords ***
@@ -18,4 +18,4 @@ Open Browser To Home Page
 
 A Home Page Is Open
     ${Title}=    Get Title
-    Should Be Equal As Strings   ${Title}  Google
+    Should Be Equal As Strings   ${Title}  ExtremeCloud IQ
