@@ -67,8 +67,6 @@ services:
     build: tests_robotframework/.
     volumes:
     - ./reports:/scripts/tests/
-volumes:
-  reports:
 
 networks:
   robottestsnw:
