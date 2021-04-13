@@ -36,13 +36,29 @@ pipeline {
         }
     }
    }
-
-        post{
-        		always{
-        			archiveArtifacts artifacts: 'reports'
-        			sh "docker-compose down"
-//         			sh "sudo rm -rf reports/"
-        		}
-        	}
+            post {
+                        always {
+                        step([$class: 'RobotPublisher',
+                        disableArchiveOutput: false,
+                        logFileName: 'reports/log.html',
+                        onlyCritical: true,
+                        otherFiles: 'reports/*.png',
+                        outputFileName: 'reports/output.xml',
+                        outputPath: '.',
+                        passThreshold: 90,
+                        reportFileName: 'reports/report.html',
+                        unstableThreshold: 100
+                        ])
+                        sh "docker-compose down"
+                        sh "sudo rm -rf reports/"
+                }
+              }
+//         post{
+//         		always{
+//         			archiveArtifacts artifacts: 'reports'
+//         			sh "docker-compose down"
+// //         			sh "sudo rm -rf reports/"
+//         		}
+//         	}
 
 }
