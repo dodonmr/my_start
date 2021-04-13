@@ -65,13 +65,11 @@ services:
       - firefox
       - hub
     build: tests_robotframework/.
-    environment:
-      - HUB_HOST=hub
-      - BROWSER=chrome
-      - MODULE=tests
-
     volumes:
     - ./reports:/scripts/tests/*
+volumes:
+  reports:
+    external: true
 
 networks:
   robottestsnw:

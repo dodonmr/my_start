@@ -36,12 +36,6 @@ FROM python:3.8.5
 #
 #WORKDIR /robotframework-tests
 
-RUN apt-get update
-
-RUN apt -y install jq
-
-#RUN mkdir -p /scripts
-
 WORKDIR /scripts
 
 COPY healthcheck.sh  .
@@ -52,7 +46,6 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 RUN chmod a+x healthcheck.sh
-#RUN ./healthcheck.sh
 COPY tests /scripts/tests
 
 #RUN chmod +x wait-for-it.sh
