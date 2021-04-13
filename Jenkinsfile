@@ -27,7 +27,7 @@ pipeline {
 
         // Execute selenium tests in robottests container
 
-              sh "docker-compose run robottests robot -d tests -x xunit --variable BROWSER:chrome /scripts/tests/"
+              sh "docker-compose run robottests robot -d reports -x xunit --variable BROWSER:chrome /scripts/tests/"
 
         // Stop and remove the containers
               sh " docker-compose down"
