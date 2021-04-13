@@ -71,7 +71,7 @@ services:
       - MODULE=tests
 
     volumes:
-    - ./reports:/scripts/tests/*
+    - reports:/scripts/tests/*
 
 networks:
   robottestsnw:
