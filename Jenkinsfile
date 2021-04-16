@@ -48,7 +48,7 @@ pipeline {
       ])
          // Stop and remove the containers and remove "reports" folder
             sh "docker-compose down"
-            sh "sudo rm -rf reports/"
+            sh "rm -rf reports/"
     }
   }
 }
