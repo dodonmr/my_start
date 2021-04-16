@@ -6,4 +6,4 @@ COPY ./tools/requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY tests /scripts/tests
+#COPY tests /scripts/tests
